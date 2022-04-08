@@ -34,7 +34,7 @@ $number = 4
 
 Write-Host "The number is: " $number
 ```
-Resultado de la ejecución del script.
+## Ejecución del script.
 ```
 PS C:\Users\Fran> C:\Users\Fran\Desktop\Scripts Powershell\1.ps1
 The number is:  1
@@ -96,7 +96,7 @@ Se hace lo mismo que en el [cuarto bucle](#cuarto-bucle), pero ahorrandose la va
 $stringOfCharacters.ToCharArray() | ForEach-Object { Write-Host "$_" }
 ```
 
-Ejecucion del script
+## Ejecución del script
 ```
 PS C:\Users\Fran> C:\Users\Fran\Desktop\Scripts Powershell\2.ps1
 hello
@@ -162,4 +162,59 @@ n
 e
 r
 s
+```
+# Script 3
+Este script tambien es mejor dividirlo por partes.
+## Parte 1
+Aqui muestra unos ejemplos para ver el funcionamiento del operador ```-eq```.
+```
+if (4 -eq 4) {
+    Write-Host "4 is equal to 4"
+}
+
+if ("hello" -eq "hello") {
+    Write-Host "Both strings are equal to each other"
+} 
+```
+## Parte 2
+Se muestra como segun los valores que le pongas a las variables se cumplira la condicion del equals o no.
+```
+[int]$x = 10
+[int]$y = 10
+
+if ($x -eq $y) {
+    Write-Host "the x and y variables are equal to each other"
+}
+else {
+    Write-Host "The x and y variables are NOT equal to each other"
+}
+```
+
+## Parte 3
+Lo mismo que la [parte 2](#parte-2), pero utilizando un string como variable.
+```
+$yourName = "Ian"
+
+if ($yourName -eq "Ian") {
+    Write-Host "Hay my name is Ian too!"
+}
+else {
+    Write-Host "Hi $yourName, nice to meet you!"
+}
+```
+
+## Parte 4
+Esta parte es un poco distinta, ya que guarda el input del usuario dentro de la variable *playerInput* para luego hacer la comprobacion segun el valor puesto.
+```
+$playerInput = Read-Host -Prompt "You walk into a room with two doorways. One to the left and one to the right. Type 'left' or 'Right' to walk through one of the doors."
+
+if ($playerInput -eq "left") {
+    Write-Host "Player typed left"
+}
+elseif ($playerInput -eq "right") {
+    Write-Host "Player typed right"
+}
+else {
+    Write-Host "Player typed something we didn't understand"
+}
 ```
