@@ -34,11 +34,132 @@ $number = 4
 
 Write-Host "The number is: " $number
 ```
-Resultado de la ejecución del script
+Resultado de la ejecución del script.
 ```
 PS C:\Users\Fran> C:\Users\Fran\Desktop\Scripts Powershell\1.ps1
 The number is:  1
 The number is:  2
 The number is:  3
 The number is:  4
+```
+
+# Script 2
+Este script se divide en diferentes formas de recorrer bucles.
+## Primer Bucle
+Aqui se utilizan dos variables junto a una estructura *for* para imprimir el string 'hello' tantas veces hasta que el valor de *counter* sea igual al de *repeat* (5 en este caso).
+```
+[int]$repeat = 5
+
+for ($counter = 0; $counter -lt $repeat; $counter++) {
+    Write-Host "hello"
+} 
+```
+
+## Segundo Bucle
+Es igual que el [primer bucle](#primer-bucle) pero esta vez utiliza una estrcutra *while*.
+```
+[int]$repeat = 5
+[int]$counter = 0
+
+while ($counter -lt $repeat) {
+    Write-Host "hello"
+    $counter++
+}
+```
+
+## Tercer Bucle
+Es igual que el [segundo bucle](#segundp-bucle) pero utilizando una estructura *do...while*
+```
+[int]$repeat = 5
+[int]$counter = 0
+do {
+    Write-Host "hello"
+    $counter++
+}
+while ($counter -lt $repeat)
+```
+
+## Cuarto Bucle
+En esta parte se utiliza una estructura y variables distintas de los anteriores, primer se guarda dentro de *stringOfCharacters* el texto en cuestion para luego en un bucle *foreach*, utilizando la variable *character*, ir imprimiendo por pantalla los diferentes caracteres que conforman el string, el cual se paso a formato array de caracteres.
+```
+[string]$stringOfCharacters = "PowerShell for Beginners"
+
+foreach ($character in $stringOfCharacters.ToCharArray()) {
+    Write-Host $character
+} 
+```
+## Quinto Bucle
+Se hace lo mismo que en el [cuarto bucle](#cuarto-bucle), pero ahorrandose la variable *character* ya que lo hace directamente utilizando pipes y la variable ```$_```, para hacer referencia a cada caracter del array.
+
+```
+[string]$stringOfCharacters = "PowerShell for Beginners"
+$stringOfCharacters.ToCharArray() | ForEach-Object { Write-Host "$_" }
+```
+
+Ejecucion del script
+```
+PS C:\Users\Fran> C:\Users\Fran\Desktop\Scripts Powershell\2.ps1
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+P
+o
+w
+e
+r
+S
+h
+e
+l
+l
+ 
+f
+o
+r
+ 
+B
+e
+g
+i
+n
+n
+e
+r
+s
+P
+o
+w
+e
+r
+S
+h
+e
+l
+l
+ 
+f
+o
+r
+ 
+B
+e
+g
+i
+n
+n
+e
+r
+s
 ```
