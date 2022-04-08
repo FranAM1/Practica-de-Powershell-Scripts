@@ -316,3 +316,62 @@ if ($var -isnot [bool]) {
 ```
 
 ## Parte 6
+Ejemplo de la utilizacion de switch a partir de la variable *number*.
+```
+[int]$number = 2
+switch ($number) {
+    1 { "The number is one" }
+    2 { "The number is two" }
+    default { "I dont know what the number is" }
+}
+```
+
+## Parte 7
+Un ejemplo parecido a la parte [anterior](#parte-6) pero utilizando un string.
+```
+[string]$favouriteColour = "Blue"
+switch ($favouriteColour) {
+    "Red" {
+        "Your favourite colour is Red"
+        "I like red too."
+    }
+ 
+    "Blue" {
+        "Your favourite colour is Blue"
+        "I like Blue too."
+    }
+ 
+    default { "I dont recognise that colour" }
+}
+```
+
+## Ejecución del script
+```
+PS C:\Users\Fran> C:\Users\Fran\Desktop\Scripts Powershell\3.ps1
+4 is equal to 4
+Both strings are equal to each other
+the x and y variables are equal to each other
+Hay my name is Ian too!
+You walk into a room with two doorways. One to the left and one to the right. Type 'left' or 'Right' to walk through one of the doors.
+: left
+Player typed left
+string : El término 'string' no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable. Compruebe si 
+escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que dicha ruta es correcta e inténtelo de nuevo.
+En C:\Users\Fran\Desktop\Scripts Powershell\3.ps1: 117 Carácter: 5
++     string "HELLO"
++     ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (string:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+string : El término 'string' no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable. Compruebe si 
+escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que dicha ruta es correcta e inténtelo de nuevo.
+En C:\Users\Fran\Desktop\Scripts Powershell\3.ps1: 123 Carácter: 5
++     string "HELLO"
++     ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (string:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+The number is two
+Your favourite colour is Blue
+I like Blue too.
+```
